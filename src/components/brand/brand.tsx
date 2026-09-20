@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useId } from "react";
 
 type BrandProps = {
   variant?: "full" | "monogram" | "wordmark";
@@ -6,10 +7,11 @@ type BrandProps = {
 };
 
 function Monogram({ className }: { className?: string }) {
+  const gradientId = `rf-gold-${useId().replace(/:/g, "")}`;
   return (
     <svg className={cn("overflow-visible", className)} viewBox="0 0 180 180" role="img" aria-label="Monograma Ross Fortuna">
       <defs>
-        <linearGradient id="rf-gold" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="var(--gold-deep)" />
           <stop offset="0.28" stopColor="var(--gold)" />
           <stop offset="0.5" stopColor="var(--gold-light)" />
@@ -17,11 +19,11 @@ function Monogram({ className }: { className?: string }) {
           <stop offset="1" stopColor="var(--gold-deep)" />
         </linearGradient>
       </defs>
-      <circle cx="90" cy="98" r="59" fill="none" stroke="url(#rf-gold)" strokeWidth="5" />
-      <path d="M51 47 42 21l27 15L90 10l21 26 27-15-9 26Z" fill="url(#rf-gold)" stroke="var(--gold-deep)" strokeWidth="2" />
-      <circle cx="42" cy="20" r="5" fill="url(#rf-gold)" /><circle cx="90" cy="9" r="5" fill="url(#rf-gold)" /><circle cx="138" cy="20" r="5" fill="url(#rf-gold)" />
-      <text x="58" y="132" fill="url(#rf-gold)" fontFamily="Cormorant Garamond, serif" fontSize="105" fontWeight="700">R</text>
-      <g fill="url(#rf-gold)" transform="translate(48 93)">
+      <circle cx="90" cy="98" r="59" fill="none" stroke={`url(#${gradientId})`} strokeWidth="5" />
+      <path d="M51 47 42 21l27 15L90 10l21 26 27-15-9 26Z" fill={`url(#${gradientId})`} stroke="var(--gold-deep)" strokeWidth="2" />
+      <circle cx="42" cy="20" r="5" fill={`url(#${gradientId})`} /><circle cx="90" cy="9" r="5" fill={`url(#${gradientId})`} /><circle cx="138" cy="20" r="5" fill={`url(#${gradientId})`} />
+      <text x="58" y="132" fill={`url(#${gradientId})`} fontFamily="Cormorant Garamond, serif" fontSize="105" fontWeight="700">R</text>
+      <g fill={`url(#${gradientId})`} transform="translate(48 93)">
         <circle cx="0" cy="-8" r="10" /><circle cx="9" cy="1" r="10" /><circle cx="0" cy="10" r="10" /><circle cx="-9" cy="1" r="10" />
       </g>
     </svg>
