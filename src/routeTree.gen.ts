@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccesoRouteImport } from './routes/acceso'
+import { Route as ConsultarRouteImport } from './routes/consultar'
+import { Route as CuentaRouteImport } from './routes/cuenta'
 import { Route as GuiaRouteImport } from './routes/guia'
+import { Route as JugarRouteImport } from './routes/jugar'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +27,24 @@ const AccesoRoute = AccesoRouteImport.update({
   path: '/acceso',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConsultarRoute = ConsultarRouteImport.update({
+  id: '/consultar',
+  path: '/consultar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CuentaRoute = CuentaRouteImport.update({
+  id: '/cuenta',
+  path: '/cuenta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuiaRoute = GuiaRouteImport.update({
   id: '/guia',
   path: '/guia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JugarRoute = JugarRouteImport.update({
+  id: '/jugar',
+  path: '/jugar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResultadosRoute = ResultadosRouteImport.update({
@@ -38,34 +56,68 @@ const ResultadosRoute = ResultadosRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/acceso': typeof AccesoRoute
+  '/consultar': typeof ConsultarRoute
+  '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
+  '/jugar': typeof JugarRoute
   '/resultados': typeof ResultadosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/acceso': typeof AccesoRoute
+  '/consultar': typeof ConsultarRoute
+  '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
+  '/jugar': typeof JugarRoute
   '/resultados': typeof ResultadosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/acceso': typeof AccesoRoute
+  '/consultar': typeof ConsultarRoute
+  '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
+  '/jugar': typeof JugarRoute
   '/resultados': typeof ResultadosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/acceso' | '/guia' | '/resultados'
+  fullPaths:
+    | '/'
+    | '/acceso'
+    | '/consultar'
+    | '/cuenta'
+    | '/guia'
+    | '/jugar'
+    | '/resultados'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/acceso' | '/guia' | '/resultados'
-  id: '__root__' | '/' | '/acceso' | '/guia' | '/resultados'
+  to:
+    | '/'
+    | '/acceso'
+    | '/consultar'
+    | '/cuenta'
+    | '/guia'
+    | '/jugar'
+    | '/resultados'
+  id:
+    | '__root__'
+    | '/'
+    | '/acceso'
+    | '/consultar'
+    | '/cuenta'
+    | '/guia'
+    | '/jugar'
+    | '/resultados'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccesoRoute: typeof AccesoRoute
+  ConsultarRoute: typeof ConsultarRoute
+  CuentaRoute: typeof CuentaRoute
   GuiaRoute: typeof GuiaRoute
+  JugarRoute: typeof JugarRoute
   ResultadosRoute: typeof ResultadosRoute
 }
 
@@ -85,11 +137,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccesoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/consultar': {
+      id: '/consultar'
+      path: '/consultar'
+      fullPath: '/consultar'
+      preLoaderRoute: typeof ConsultarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cuenta': {
+      id: '/cuenta'
+      path: '/cuenta'
+      fullPath: '/cuenta'
+      preLoaderRoute: typeof CuentaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guia': {
       id: '/guia'
       path: '/guia'
       fullPath: '/guia'
       preLoaderRoute: typeof GuiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jugar': {
+      id: '/jugar'
+      path: '/jugar'
+      fullPath: '/jugar'
+      preLoaderRoute: typeof JugarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resultados': {
@@ -105,7 +178,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccesoRoute: AccesoRoute,
+  ConsultarRoute: ConsultarRoute,
+  CuentaRoute: CuentaRoute,
   GuiaRoute: GuiaRoute,
+  JugarRoute: JugarRoute,
   ResultadosRoute: ResultadosRoute,
 }
 export const routeTree = rootRouteImport
