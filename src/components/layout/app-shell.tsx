@@ -5,8 +5,12 @@ import { Brand } from "@/components/brand/brand";
 import { cn } from "@/lib/utils";
 
 const nav = [
-  { label: "Inicio", icon: Home, to: "/" as const },
-  { label: "Guía", icon: BookOpen, to: "/guia" as const },
+  { label: "Inicio", to: "/" as const },
+  { label: "Jugar", to: "/jugar" as const },
+  { label: "Resultados", to: "/resultados" as const },
+  { label: "Consultar", to: "/consultar" as const },
+  { label: "Mi cuenta", to: "/cuenta" as const },
+  { label: "Guía", to: "/guia" as const },
 ];
 
 export function AppShell({ children, className }: { children: ReactNode; className?: string }) {
