@@ -18,7 +18,7 @@ import { draws, modalities, plansForModality, type Plan } from "@/data/draws";
 import type { Ticket } from "@/data/tickets";
 import { cn } from "@/lib/utils";
 
-type Search = { invitado?: boolean; sorteo?: string };
+type Search = { invitado?: boolean | undefined; sorteo?: string | undefined };
 
 export const Route = createFileRoute("/jugar")({
   validateSearch: (search: Record<string, unknown>): Search => ({

@@ -1,12 +1,16 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { BookOpen, CircleUserRound, Home, Ticket, WalletCards } from "lucide-react";
+import { CircleUserRound, Home, Search, Ticket, Trophy } from "lucide-react";
 import { Brand } from "@/components/brand/brand";
 import { cn } from "@/lib/utils";
 
 const nav = [
-  { label: "Inicio", icon: Home, to: "/" as const },
-  { label: "Guía", icon: BookOpen, to: "/guia" as const },
+  { label: "Inicio", to: "/" as const },
+  { label: "Jugar", to: "/jugar" as const },
+  { label: "Resultados", to: "/resultados" as const },
+  { label: "Consultar", to: "/consultar" as const },
+  { label: "Mi cuenta", to: "/cuenta" as const },
+  { label: "Guía", to: "/guia" as const },
 ];
 
 export function AppShell({ children, className }: { children: ReactNode; className?: string }) {
@@ -26,10 +30,10 @@ export function AppShell({ children, className }: { children: ReactNode; classNa
       <main className={cn("mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8", className)}>{children}</main>
       <nav className="safe-bottom fixed inset-x-0 bottom-0 z-50 grid grid-cols-5 border-t border-gold/25 bg-background/94 px-2 pt-2 backdrop-blur-xl [-webkit-backdrop-filter:blur(20px)] sm:hidden" aria-label="Navegación móvil">
         <Link to="/" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Home /><span>Inicio</span></Link>
-        <Link to="/guia" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><BookOpen /><span>Guía</span></Link>
-        <button className="mobile-nav-item" type="button" aria-label="Jugar, disponible en la próxima fase" disabled><Ticket /><span>Jugar</span></button>
-        <button className="mobile-nav-item" type="button" aria-label="Billetera, disponible en la próxima fase" disabled><WalletCards /><span>Billetera</span></button>
-        <button className="mobile-nav-item" type="button" aria-label="Cuenta, disponible en la próxima fase" disabled><CircleUserRound /><span>Cuenta</span></button>
+        <Link to="/jugar" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Ticket /><span>Jugar</span></Link>
+        <Link to="/consultar" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Search /><span>Tickets</span></Link>
+        <Link to="/resultados" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Trophy /><span>Resultados</span></Link>
+        <Link to="/cuenta" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><CircleUserRound /><span>Cuenta</span></Link>
       </nav>
     </div>
   );

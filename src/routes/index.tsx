@@ -90,7 +90,7 @@ function Portal() {
           </Button>
         </div>
         <p className="mt-4 text-center text-sm text-muted-foreground">
-          Último resultado publicado: {lastResult.drawName} · {lastResult.date}
+          Último resultado publicado: {lastResult?.drawName} · {lastResult?.date}
         </p>
       </section>
 

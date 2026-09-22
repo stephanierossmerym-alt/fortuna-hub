@@ -29,7 +29,6 @@ const quickActions = [
   { label: "Mis Tickets", icon: TicketIcon, to: "/consultar" as const, search: {} },
 ];
 
-export default function noop() {}
 
 function Cuenta() {
   const account = customerAccount;
