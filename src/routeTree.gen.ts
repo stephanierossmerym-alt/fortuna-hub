@@ -18,6 +18,10 @@ import { Route as JugarRouteImport } from './routes/jugar'
 import { Route as PanelRouteImport } from './routes/panel'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as PanelIndexRouteImport } from './routes/panel.index'
+import { Route as PanelTrabajadorRouteImport } from './routes/panel.trabajador'
+import { Route as PanelAdminIndexRouteImport } from './routes/panel.admin.index'
+import { Route as PanelAdminComprobantesRouteImport } from './routes/panel.admin.comprobantes'
+import { Route as PanelAdminTicketsRouteImport } from './routes/panel.admin.tickets'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +68,26 @@ const PanelIndexRoute = PanelIndexRouteImport.update({
   path: '/',
   getParentRoute: () => PanelRoute,
 } as any)
+const PanelTrabajadorRoute = PanelTrabajadorRouteImport.update({
+  id: '/trabajador',
+  path: '/trabajador',
+  getParentRoute: () => PanelRoute,
+} as any)
+const PanelAdminIndexRoute = PanelAdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => PanelRoute,
+} as any)
+const PanelAdminComprobantesRoute = PanelAdminComprobantesRouteImport.update({
+  id: '/admin/comprobantes',
+  path: '/admin/comprobantes',
+  getParentRoute: () => PanelRoute,
+} as any)
+const PanelAdminTicketsRoute = PanelAdminTicketsRouteImport.update({
+  id: '/admin/tickets',
+  path: '/admin/tickets',
+  getParentRoute: () => PanelRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,7 +98,11 @@ export interface FileRoutesByFullPath {
   '/jugar': typeof JugarRoute
   '/panel': typeof PanelRouteWithChildren
   '/resultados': typeof ResultadosRoute
+  '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel/': typeof PanelIndexRoute
+  '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
+  '/panel/admin/tickets': typeof PanelAdminTicketsRoute
+  '/panel/admin/': typeof PanelAdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -84,7 +112,11 @@ export interface FileRoutesByTo {
   '/guia': typeof GuiaRoute
   '/jugar': typeof JugarRoute
   '/resultados': typeof ResultadosRoute
+  '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel': typeof PanelIndexRoute
+  '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
+  '/panel/admin/tickets': typeof PanelAdminTicketsRoute
+  '/panel/admin': typeof PanelAdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -96,7 +128,11 @@ export interface FileRoutesById {
   '/jugar': typeof JugarRoute
   '/panel': typeof PanelRouteWithChildren
   '/resultados': typeof ResultadosRoute
+  '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel/': typeof PanelIndexRoute
+  '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
+  '/panel/admin/tickets': typeof PanelAdminTicketsRoute
+  '/panel/admin/': typeof PanelAdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -109,7 +145,11 @@ export interface FileRouteTypes {
     | '/jugar'
     | '/panel'
     | '/resultados'
+    | '/panel/trabajador'
     | '/panel/'
+    | '/panel/admin/comprobantes'
+    | '/panel/admin/tickets'
+    | '/panel/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -119,7 +159,11 @@ export interface FileRouteTypes {
     | '/guia'
     | '/jugar'
     | '/resultados'
+    | '/panel/trabajador'
     | '/panel'
+    | '/panel/admin/comprobantes'
+    | '/panel/admin/tickets'
+    | '/panel/admin'
   id:
     | '__root__'
     | '/'
@@ -130,7 +174,11 @@ export interface FileRouteTypes {
     | '/jugar'
     | '/panel'
     | '/resultados'
+    | '/panel/trabajador'
     | '/panel/'
+    | '/panel/admin/comprobantes'
+    | '/panel/admin/tickets'
+    | '/panel/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -209,15 +257,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelIndexRouteImport
       parentRoute: typeof PanelRoute
     }
+    '/panel/trabajador': {
+      id: '/panel/trabajador'
+      path: '/trabajador'
+      fullPath: '/panel/trabajador'
+      preLoaderRoute: typeof PanelTrabajadorRouteImport
+      parentRoute: typeof PanelRoute
+    }
+    '/panel/admin/': {
+      id: '/panel/admin/'
+      path: '/admin'
+      fullPath: '/panel/admin/'
+      preLoaderRoute: typeof PanelAdminIndexRouteImport
+      parentRoute: typeof PanelRoute
+    }
+    '/panel/admin/comprobantes': {
+      id: '/panel/admin/comprobantes'
+      path: '/admin/comprobantes'
+      fullPath: '/panel/admin/comprobantes'
+      preLoaderRoute: typeof PanelAdminComprobantesRouteImport
+      parentRoute: typeof PanelRoute
+    }
+    '/panel/admin/tickets': {
+      id: '/panel/admin/tickets'
+      path: '/admin/tickets'
+      fullPath: '/panel/admin/tickets'
+      preLoaderRoute: typeof PanelAdminTicketsRouteImport
+      parentRoute: typeof PanelRoute
+    }
   }
 }
 
 interface PanelRouteChildren {
+  PanelTrabajadorRoute: typeof PanelTrabajadorRoute
   PanelIndexRoute: typeof PanelIndexRoute
+  PanelAdminComprobantesRoute: typeof PanelAdminComprobantesRoute
+  PanelAdminTicketsRoute: typeof PanelAdminTicketsRoute
+  PanelAdminIndexRoute: typeof PanelAdminIndexRoute
 }
 
 const PanelRouteChildren: PanelRouteChildren = {
+  PanelTrabajadorRoute: PanelTrabajadorRoute,
   PanelIndexRoute: PanelIndexRoute,
+  PanelAdminComprobantesRoute: PanelAdminComprobantesRoute,
+  PanelAdminTicketsRoute: PanelAdminTicketsRoute,
+  PanelAdminIndexRoute: PanelAdminIndexRoute,
 }
 
 const PanelRouteWithChildren = PanelRoute._addFileChildren(PanelRouteChildren)
