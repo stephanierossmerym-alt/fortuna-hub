@@ -20,7 +20,11 @@ import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as PanelIndexRouteImport } from './routes/panel.index'
 import { Route as PanelTrabajadorRouteImport } from './routes/panel.trabajador'
 import { Route as PanelAdminIndexRouteImport } from './routes/panel.admin.index'
+import { Route as PanelAdminAuditoriaRouteImport } from './routes/panel.admin.auditoria'
 import { Route as PanelAdminComprobantesRouteImport } from './routes/panel.admin.comprobantes'
+import { Route as PanelAdminEquipoRouteImport } from './routes/panel.admin.equipo'
+import { Route as PanelAdminResultadosRouteImport } from './routes/panel.admin.resultados'
+import { Route as PanelAdminSorteosRouteImport } from './routes/panel.admin.sorteos'
 import { Route as PanelAdminTicketsRouteImport } from './routes/panel.admin.tickets'
 
 const IndexRoute = IndexRouteImport.update({
@@ -78,9 +82,29 @@ const PanelAdminIndexRoute = PanelAdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => PanelRoute,
 } as any)
+const PanelAdminAuditoriaRoute = PanelAdminAuditoriaRouteImport.update({
+  id: '/admin/auditoria',
+  path: '/admin/auditoria',
+  getParentRoute: () => PanelRoute,
+} as any)
 const PanelAdminComprobantesRoute = PanelAdminComprobantesRouteImport.update({
   id: '/admin/comprobantes',
   path: '/admin/comprobantes',
+  getParentRoute: () => PanelRoute,
+} as any)
+const PanelAdminEquipoRoute = PanelAdminEquipoRouteImport.update({
+  id: '/admin/equipo',
+  path: '/admin/equipo',
+  getParentRoute: () => PanelRoute,
+} as any)
+const PanelAdminResultadosRoute = PanelAdminResultadosRouteImport.update({
+  id: '/admin/resultados',
+  path: '/admin/resultados',
+  getParentRoute: () => PanelRoute,
+} as any)
+const PanelAdminSorteosRoute = PanelAdminSorteosRouteImport.update({
+  id: '/admin/sorteos',
+  path: '/admin/sorteos',
   getParentRoute: () => PanelRoute,
 } as any)
 const PanelAdminTicketsRoute = PanelAdminTicketsRouteImport.update({
@@ -100,7 +124,11 @@ export interface FileRoutesByFullPath {
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel/': typeof PanelIndexRoute
+  '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
+  '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/resultados': typeof PanelAdminResultadosRoute
+  '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
   '/panel/admin/': typeof PanelAdminIndexRoute
 }
@@ -114,7 +142,11 @@ export interface FileRoutesByTo {
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel': typeof PanelIndexRoute
+  '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
+  '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/resultados': typeof PanelAdminResultadosRoute
+  '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
   '/panel/admin': typeof PanelAdminIndexRoute
 }
@@ -130,7 +162,11 @@ export interface FileRoutesById {
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel/': typeof PanelIndexRoute
+  '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
+  '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/resultados': typeof PanelAdminResultadosRoute
+  '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
   '/panel/admin/': typeof PanelAdminIndexRoute
 }
@@ -147,7 +183,11 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/panel/trabajador'
     | '/panel/'
+    | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
+    | '/panel/admin/equipo'
+    | '/panel/admin/resultados'
+    | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
     | '/panel/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -161,7 +201,11 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/panel/trabajador'
     | '/panel'
+    | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
+    | '/panel/admin/equipo'
+    | '/panel/admin/resultados'
+    | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
     | '/panel/admin'
   id:
@@ -176,7 +220,11 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/panel/trabajador'
     | '/panel/'
+    | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
+    | '/panel/admin/equipo'
+    | '/panel/admin/resultados'
+    | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
     | '/panel/admin/'
   fileRoutesById: FileRoutesById
@@ -271,11 +319,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelAdminIndexRouteImport
       parentRoute: typeof PanelRoute
     }
+    '/panel/admin/auditoria': {
+      id: '/panel/admin/auditoria'
+      path: '/admin/auditoria'
+      fullPath: '/panel/admin/auditoria'
+      preLoaderRoute: typeof PanelAdminAuditoriaRouteImport
+      parentRoute: typeof PanelRoute
+    }
     '/panel/admin/comprobantes': {
       id: '/panel/admin/comprobantes'
       path: '/admin/comprobantes'
       fullPath: '/panel/admin/comprobantes'
       preLoaderRoute: typeof PanelAdminComprobantesRouteImport
+      parentRoute: typeof PanelRoute
+    }
+    '/panel/admin/equipo': {
+      id: '/panel/admin/equipo'
+      path: '/admin/equipo'
+      fullPath: '/panel/admin/equipo'
+      preLoaderRoute: typeof PanelAdminEquipoRouteImport
+      parentRoute: typeof PanelRoute
+    }
+    '/panel/admin/resultados': {
+      id: '/panel/admin/resultados'
+      path: '/admin/resultados'
+      fullPath: '/panel/admin/resultados'
+      preLoaderRoute: typeof PanelAdminResultadosRouteImport
+      parentRoute: typeof PanelRoute
+    }
+    '/panel/admin/sorteos': {
+      id: '/panel/admin/sorteos'
+      path: '/admin/sorteos'
+      fullPath: '/panel/admin/sorteos'
+      preLoaderRoute: typeof PanelAdminSorteosRouteImport
       parentRoute: typeof PanelRoute
     }
     '/panel/admin/tickets': {
@@ -291,7 +367,11 @@ declare module '@tanstack/react-router' {
 interface PanelRouteChildren {
   PanelTrabajadorRoute: typeof PanelTrabajadorRoute
   PanelIndexRoute: typeof PanelIndexRoute
+  PanelAdminAuditoriaRoute: typeof PanelAdminAuditoriaRoute
   PanelAdminComprobantesRoute: typeof PanelAdminComprobantesRoute
+  PanelAdminEquipoRoute: typeof PanelAdminEquipoRoute
+  PanelAdminResultadosRoute: typeof PanelAdminResultadosRoute
+  PanelAdminSorteosRoute: typeof PanelAdminSorteosRoute
   PanelAdminTicketsRoute: typeof PanelAdminTicketsRoute
   PanelAdminIndexRoute: typeof PanelAdminIndexRoute
 }
@@ -299,7 +379,11 @@ interface PanelRouteChildren {
 const PanelRouteChildren: PanelRouteChildren = {
   PanelTrabajadorRoute: PanelTrabajadorRoute,
   PanelIndexRoute: PanelIndexRoute,
+  PanelAdminAuditoriaRoute: PanelAdminAuditoriaRoute,
   PanelAdminComprobantesRoute: PanelAdminComprobantesRoute,
+  PanelAdminEquipoRoute: PanelAdminEquipoRoute,
+  PanelAdminResultadosRoute: PanelAdminResultadosRoute,
+  PanelAdminSorteosRoute: PanelAdminSorteosRoute,
   PanelAdminTicketsRoute: PanelAdminTicketsRoute,
   PanelAdminIndexRoute: PanelAdminIndexRoute,
 }
