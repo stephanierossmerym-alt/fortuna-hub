@@ -15,7 +15,9 @@ import { Route as ConsultarRouteImport } from './routes/consultar'
 import { Route as CuentaRouteImport } from './routes/cuenta'
 import { Route as GuiaRouteImport } from './routes/guia'
 import { Route as JugarRouteImport } from './routes/jugar'
+import { Route as PanelRouteImport } from './routes/panel'
 import { Route as ResultadosRouteImport } from './routes/resultados'
+import { Route as PanelIndexRouteImport } from './routes/panel.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -47,10 +49,20 @@ const JugarRoute = JugarRouteImport.update({
   path: '/jugar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PanelRoute = PanelRouteImport.update({
+  id: '/panel',
+  path: '/panel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResultadosRoute = ResultadosRouteImport.update({
   id: '/resultados',
   path: '/resultados',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PanelIndexRoute = PanelIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PanelRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -60,7 +72,9 @@ export interface FileRoutesByFullPath {
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
   '/jugar': typeof JugarRoute
+  '/panel': typeof PanelRouteWithChildren
   '/resultados': typeof ResultadosRoute
+  '/panel/': typeof PanelIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +84,7 @@ export interface FileRoutesByTo {
   '/guia': typeof GuiaRoute
   '/jugar': typeof JugarRoute
   '/resultados': typeof ResultadosRoute
+  '/panel': typeof PanelIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +94,9 @@ export interface FileRoutesById {
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
   '/jugar': typeof JugarRoute
+  '/panel': typeof PanelRouteWithChildren
   '/resultados': typeof ResultadosRoute
+  '/panel/': typeof PanelIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +107,9 @@ export interface FileRouteTypes {
     | '/cuenta'
     | '/guia'
     | '/jugar'
+    | '/panel'
     | '/resultados'
+    | '/panel/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +119,7 @@ export interface FileRouteTypes {
     | '/guia'
     | '/jugar'
     | '/resultados'
+    | '/panel'
   id:
     | '__root__'
     | '/'
@@ -108,7 +128,9 @@ export interface FileRouteTypes {
     | '/cuenta'
     | '/guia'
     | '/jugar'
+    | '/panel'
     | '/resultados'
+    | '/panel/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,6 +140,7 @@ export interface RootRouteChildren {
   CuentaRoute: typeof CuentaRoute
   GuiaRoute: typeof GuiaRoute
   JugarRoute: typeof JugarRoute
+  PanelRoute: typeof PanelRouteWithChildren
   ResultadosRoute: typeof ResultadosRoute
 }
 
@@ -165,6 +188,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JugarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/panel': {
+      id: '/panel'
+      path: '/panel'
+      fullPath: '/panel'
+      preLoaderRoute: typeof PanelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resultados': {
       id: '/resultados'
       path: '/resultados'
@@ -172,8 +202,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResultadosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/panel/': {
+      id: '/panel/'
+      path: '/'
+      fullPath: '/panel/'
+      preLoaderRoute: typeof PanelIndexRouteImport
+      parentRoute: typeof PanelRoute
+    }
   }
 }
+
+interface PanelRouteChildren {
+  PanelIndexRoute: typeof PanelIndexRoute
+}
+
+const PanelRouteChildren: PanelRouteChildren = {
+  PanelIndexRoute: PanelIndexRoute,
+}
+
+const PanelRouteWithChildren = PanelRoute._addFileChildren(PanelRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -182,6 +229,7 @@ const rootRouteChildren: RootRouteChildren = {
   CuentaRoute: CuentaRoute,
   GuiaRoute: GuiaRoute,
   JugarRoute: JugarRoute,
+  PanelRoute: PanelRouteWithChildren,
   ResultadosRoute: ResultadosRoute,
 }
 export const routeTree = rootRouteImport
