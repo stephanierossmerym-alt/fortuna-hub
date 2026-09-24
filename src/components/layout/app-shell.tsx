@@ -11,6 +11,7 @@ const nav = [
   { label: "Consultar", to: "/consultar" as const },
   { label: "Mi cuenta", to: "/cuenta" as const },
   { label: "Guía", to: "/guia" as const },
+  { label: "Panel", to: "/panel" as const },
 ];
 
 export function AppShell({ children, className }: { children: ReactNode; className?: string }) {
