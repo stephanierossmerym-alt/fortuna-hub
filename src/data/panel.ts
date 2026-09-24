@@ -59,7 +59,7 @@ export const receipts: Receipt[] = [
   {
     id: "CMP-8841",
     ticketId: "RF-4602",
-    customer: "Invidado RF-119",
+    customer: "Invitado RF-119",
     amount: 3,
     method: "Transferencia bancaria",
     createdAt: "Sábado 12 de Septiembre del 2026 · 19:05:02",
