@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccesoRouteImport } from './routes/acceso'
+import { Route as BilleteraRouteImport } from './routes/billetera'
 import { Route as ConsultarRouteImport } from './routes/consultar'
 import { Route as CuentaRouteImport } from './routes/cuenta'
 import { Route as GuiaRouteImport } from './routes/guia'
@@ -35,6 +36,11 @@ const IndexRoute = IndexRouteImport.update({
 const AccesoRoute = AccesoRouteImport.update({
   id: '/acceso',
   path: '/acceso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BilleteraRoute = BilleteraRouteImport.update({
+  id: '/billetera',
+  path: '/billetera',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConsultarRoute = ConsultarRouteImport.update({
@@ -116,6 +122,7 @@ const PanelAdminTicketsRoute = PanelAdminTicketsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/acceso': typeof AccesoRoute
+  '/billetera': typeof BilleteraRoute
   '/consultar': typeof ConsultarRoute
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
@@ -135,6 +142,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/acceso': typeof AccesoRoute
+  '/billetera': typeof BilleteraRoute
   '/consultar': typeof ConsultarRoute
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
@@ -154,6 +162,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/acceso': typeof AccesoRoute
+  '/billetera': typeof BilleteraRoute
   '/consultar': typeof ConsultarRoute
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/acceso'
+    | '/billetera'
     | '/consultar'
     | '/cuenta'
     | '/guia'
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/acceso'
+    | '/billetera'
     | '/consultar'
     | '/cuenta'
     | '/guia'
@@ -212,6 +223,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/acceso'
+    | '/billetera'
     | '/consultar'
     | '/cuenta'
     | '/guia'
@@ -232,6 +244,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccesoRoute: typeof AccesoRoute
+  BilleteraRoute: typeof BilleteraRoute
   ConsultarRoute: typeof ConsultarRoute
   CuentaRoute: typeof CuentaRoute
   GuiaRoute: typeof GuiaRoute
@@ -254,6 +267,13 @@ declare module '@tanstack/react-router' {
       path: '/acceso'
       fullPath: '/acceso'
       preLoaderRoute: typeof AccesoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/billetera': {
+      id: '/billetera'
+      path: '/billetera'
+      fullPath: '/billetera'
+      preLoaderRoute: typeof BilleteraRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/consultar': {
@@ -393,6 +413,7 @@ const PanelRouteWithChildren = PanelRoute._addFileChildren(PanelRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccesoRoute: AccesoRoute,
+  BilleteraRoute: BilleteraRoute,
   ConsultarRoute: ConsultarRoute,
   CuentaRoute: CuentaRoute,
   GuiaRoute: GuiaRoute,
