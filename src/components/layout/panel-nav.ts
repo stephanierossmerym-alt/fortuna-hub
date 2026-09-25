@@ -9,6 +9,7 @@ export const adminNav = [
   { label: "Resumen", to: "/panel/admin" },
   { label: "Comprobantes", to: "/panel/admin/comprobantes" },
   { label: "Recargas", to: "/panel/admin/recargas" },
+  { label: "Premios y retiros", to: "/panel/admin/premios" },
   { label: "Tickets", to: "/panel/admin/tickets" },
   { label: "Sorteos y planes", to: "/panel/admin/sorteos" },
   { label: "Resultados", to: "/panel/admin/resultados" },

@@ -49,7 +49,7 @@ export type Refund = {
   by: string | null;
 };
 
-export const maskCode = (code: string) => `••••${code.slice(-0)}`.slice(0, 4).padEnd(4, "•") + "••";
+export const maskCode = (_code: string) => "••••-••••";
 
 export const prizes: Prize[] = [
   { id: "PR-701", ticketId: "RF-4591", customer: "Rossmery M.", guest: false, drawName: "Noche 20:00 · Lotto", suerte: "1ª Suerte", number: "29", amount: 360, secretCode: "7F4K-22Q9", generatedAt: "12/09/2026 · 20:12", expiresAt: "20/09/2026", status: "Ganador" },
