@@ -11,7 +11,7 @@ export type TopUp = {
   reviewer: string | null;
   reviewedAt: string | null;
   status: TopUpStatus;
-  note?: string;
+  note?: string | undefined;
 };
 
 export type MovementKind = "Dinero recibido" | "Uso de saldo" | "Premio acreditado" | "Reembolso" | "Retiro";

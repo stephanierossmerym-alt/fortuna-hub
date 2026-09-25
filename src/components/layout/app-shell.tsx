@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { CircleUserRound, Home, Search, Ticket, Trophy } from "lucide-react";
+import { CircleUserRound, Home, Search, Ticket, Wallet } from "lucide-react";
 import { Brand } from "@/components/brand/brand";
 import { cn } from "@/lib/utils";
 
@@ -9,6 +9,7 @@ const nav = [
   { label: "Jugar", to: "/jugar" as const },
   { label: "Resultados", to: "/resultados" as const },
   { label: "Consultar", to: "/consultar" as const },
+  { label: "Billetera", to: "/billetera" as const },
   { label: "Mi cuenta", to: "/cuenta" as const },
   { label: "Guía", to: "/guia" as const },
   { label: "Panel", to: "/panel" as const },
@@ -33,7 +34,7 @@ export function AppShell({ children, className }: { children: ReactNode; classNa
         <Link to="/" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Home /><span>Inicio</span></Link>
         <Link to="/jugar" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Ticket /><span>Jugar</span></Link>
         <Link to="/consultar" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Search /><span>Tickets</span></Link>
-        <Link to="/resultados" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Trophy /><span>Resultados</span></Link>
+        <Link to="/billetera" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><Wallet /><span>Billetera</span></Link>
         <Link to="/cuenta" className="mobile-nav-item" activeProps={{ className: "text-gold-deep" }}><CircleUserRound /><span>Cuenta</span></Link>
       </nav>
     </div>
