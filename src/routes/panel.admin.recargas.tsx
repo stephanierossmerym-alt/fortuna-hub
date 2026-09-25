@@ -68,7 +68,7 @@ function AdminTopUps() {
                 <div className="mt-4 space-y-3">
                   <Textarea placeholder="Motivo de rechazo (obligatorio para rechazar)" value={reasons[t.id] ?? ""} onChange={(e) => setReasons((r) => ({ ...r, [t.id]: e.target.value }))} />
                   <div className="flex gap-3">
-                    <Button variant="danger" className="flex-1" disabled={!reasons[t.id]?.trim()} onClick={() => decide(t, "Rechazado")}>Rechazar</Button>
+                    <Button variant="destructive" className="flex-1" disabled={!reasons[t.id]?.trim()} onClick={() => decide(t, "Rechazado")}>Rechazar</Button>
                     <Button variant="fortune" className="flex-1" disabled={!t.uploadedAt} onClick={() => decide(t, "Aprobado")}>Aprobar</Button>
                   </div>
                   {!t.uploadedAt && <p className="text-xs text-muted-foreground">No se puede aprobar sin comprobante cargado.</p>}
