@@ -69,7 +69,7 @@ function Billetera() {
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">Monto a recargar (USD)</p>
               <p className="my-3 text-center font-display text-4xl font-semibold tabular-nums text-gold-deep">${amount || "0"}</p>
-              <NumberPad value={amount} onChange={setAmount} maxDigits={4} />
+              <NumberPad value={amount} onChange={setAmount} digits={4} />
             </div>
             <div className="space-y-4">
               <UploadReceipt onUploaded={setFile} />
