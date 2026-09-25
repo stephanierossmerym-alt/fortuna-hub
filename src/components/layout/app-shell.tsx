@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { CircleUserRound, Home, Search, Ticket, Trophy } from "lucide-react";
+import { CircleUserRound, Home, Search, Ticket, Wallet } from "lucide-react";
 import { Brand } from "@/components/brand/brand";
 import { cn } from "@/lib/utils";
 

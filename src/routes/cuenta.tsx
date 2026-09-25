@@ -66,7 +66,8 @@ function Cuenta() {
           </button>
         ))}
       </div>
-      <p className="text-center text-xs text-muted-foreground">Billetera, premios y retiros llegan en las siguientes fases.</p>
+      <Button asChild variant="fortune" className="w-full"><Link to="/billetera"><Wallet /> Ir a mi billetera · agregar fondos</Link></Button>
+      <p className="text-center text-xs text-muted-foreground">Jugadas programadas y retiros llegan en las siguientes fases.</p>
 
       <section>
         <h2 className="font-display text-2xl font-semibold text-foreground">Mis tickets</h2>
