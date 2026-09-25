@@ -17,6 +17,7 @@ import { Route as CuentaRouteImport } from './routes/cuenta'
 import { Route as GuiaRouteImport } from './routes/guia'
 import { Route as JugarRouteImport } from './routes/jugar'
 import { Route as PanelRouteImport } from './routes/panel'
+import { Route as PremiosRouteImport } from './routes/premios'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as PanelIndexRouteImport } from './routes/panel.index'
 import { Route as PanelTrabajadorRouteImport } from './routes/panel.trabajador'
@@ -24,6 +25,7 @@ import { Route as PanelAdminIndexRouteImport } from './routes/panel.admin.index'
 import { Route as PanelAdminAuditoriaRouteImport } from './routes/panel.admin.auditoria'
 import { Route as PanelAdminComprobantesRouteImport } from './routes/panel.admin.comprobantes'
 import { Route as PanelAdminEquipoRouteImport } from './routes/panel.admin.equipo'
+import { Route as PanelAdminPremiosRouteImport } from './routes/panel.admin.premios'
 import { Route as PanelAdminRecargasRouteImport } from './routes/panel.admin.recargas'
 import { Route as PanelAdminResultadosRouteImport } from './routes/panel.admin.resultados'
 import { Route as PanelAdminSorteosRouteImport } from './routes/panel.admin.sorteos'
@@ -69,6 +71,11 @@ const PanelRoute = PanelRouteImport.update({
   path: '/panel',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PremiosRoute = PremiosRouteImport.update({
+  id: '/premios',
+  path: '/premios',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResultadosRoute = ResultadosRouteImport.update({
   id: '/resultados',
   path: '/resultados',
@@ -104,6 +111,11 @@ const PanelAdminEquipoRoute = PanelAdminEquipoRouteImport.update({
   path: '/admin/equipo',
   getParentRoute: () => PanelRoute,
 } as any)
+const PanelAdminPremiosRoute = PanelAdminPremiosRouteImport.update({
+  id: '/admin/premios',
+  path: '/admin/premios',
+  getParentRoute: () => PanelRoute,
+} as any)
 const PanelAdminRecargasRoute = PanelAdminRecargasRouteImport.update({
   id: '/admin/recargas',
   path: '/admin/recargas',
@@ -134,12 +146,14 @@ export interface FileRoutesByFullPath {
   '/guia': typeof GuiaRoute
   '/jugar': typeof JugarRoute
   '/panel': typeof PanelRouteWithChildren
+  '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel/': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
   '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/premios': typeof PanelAdminPremiosRoute
   '/panel/admin/recargas': typeof PanelAdminRecargasRoute
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
@@ -154,12 +168,14 @@ export interface FileRoutesByTo {
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
   '/jugar': typeof JugarRoute
+  '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
   '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/premios': typeof PanelAdminPremiosRoute
   '/panel/admin/recargas': typeof PanelAdminRecargasRoute
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
@@ -176,12 +192,14 @@ export interface FileRoutesById {
   '/guia': typeof GuiaRoute
   '/jugar': typeof JugarRoute
   '/panel': typeof PanelRouteWithChildren
+  '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel/': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
   '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/premios': typeof PanelAdminPremiosRoute
   '/panel/admin/recargas': typeof PanelAdminRecargasRoute
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
@@ -199,12 +217,14 @@ export interface FileRouteTypes {
     | '/guia'
     | '/jugar'
     | '/panel'
+    | '/premios'
     | '/resultados'
     | '/panel/trabajador'
     | '/panel/'
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
     | '/panel/admin/equipo'
+    | '/panel/admin/premios'
     | '/panel/admin/recargas'
     | '/panel/admin/resultados'
     | '/panel/admin/sorteos'
@@ -219,12 +239,14 @@ export interface FileRouteTypes {
     | '/cuenta'
     | '/guia'
     | '/jugar'
+    | '/premios'
     | '/resultados'
     | '/panel/trabajador'
     | '/panel'
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
     | '/panel/admin/equipo'
+    | '/panel/admin/premios'
     | '/panel/admin/recargas'
     | '/panel/admin/resultados'
     | '/panel/admin/sorteos'
@@ -240,12 +262,14 @@ export interface FileRouteTypes {
     | '/guia'
     | '/jugar'
     | '/panel'
+    | '/premios'
     | '/resultados'
     | '/panel/trabajador'
     | '/panel/'
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
     | '/panel/admin/equipo'
+    | '/panel/admin/premios'
     | '/panel/admin/recargas'
     | '/panel/admin/resultados'
     | '/panel/admin/sorteos'
@@ -262,6 +286,7 @@ export interface RootRouteChildren {
   GuiaRoute: typeof GuiaRoute
   JugarRoute: typeof JugarRoute
   PanelRoute: typeof PanelRouteWithChildren
+  PremiosRoute: typeof PremiosRoute
   ResultadosRoute: typeof ResultadosRoute
 }
 
@@ -323,6 +348,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/premios': {
+      id: '/premios'
+      path: '/premios'
+      fullPath: '/premios'
+      preLoaderRoute: typeof PremiosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resultados': {
       id: '/resultados'
       path: '/resultados'
@@ -372,6 +404,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelAdminEquipoRouteImport
       parentRoute: typeof PanelRoute
     }
+    '/panel/admin/premios': {
+      id: '/panel/admin/premios'
+      path: '/admin/premios'
+      fullPath: '/panel/admin/premios'
+      preLoaderRoute: typeof PanelAdminPremiosRouteImport
+      parentRoute: typeof PanelRoute
+    }
     '/panel/admin/recargas': {
       id: '/panel/admin/recargas'
       path: '/admin/recargas'
@@ -409,6 +448,7 @@ interface PanelRouteChildren {
   PanelAdminAuditoriaRoute: typeof PanelAdminAuditoriaRoute
   PanelAdminComprobantesRoute: typeof PanelAdminComprobantesRoute
   PanelAdminEquipoRoute: typeof PanelAdminEquipoRoute
+  PanelAdminPremiosRoute: typeof PanelAdminPremiosRoute
   PanelAdminRecargasRoute: typeof PanelAdminRecargasRoute
   PanelAdminResultadosRoute: typeof PanelAdminResultadosRoute
   PanelAdminSorteosRoute: typeof PanelAdminSorteosRoute
@@ -422,6 +462,7 @@ const PanelRouteChildren: PanelRouteChildren = {
   PanelAdminAuditoriaRoute: PanelAdminAuditoriaRoute,
   PanelAdminComprobantesRoute: PanelAdminComprobantesRoute,
   PanelAdminEquipoRoute: PanelAdminEquipoRoute,
+  PanelAdminPremiosRoute: PanelAdminPremiosRoute,
   PanelAdminRecargasRoute: PanelAdminRecargasRoute,
   PanelAdminResultadosRoute: PanelAdminResultadosRoute,
   PanelAdminSorteosRoute: PanelAdminSorteosRoute,
@@ -440,6 +481,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuiaRoute: GuiaRoute,
   JugarRoute: JugarRoute,
   PanelRoute: PanelRouteWithChildren,
+  PremiosRoute: PremiosRoute,
   ResultadosRoute: ResultadosRoute,
 }
 export const routeTree = rootRouteImport

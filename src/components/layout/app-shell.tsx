@@ -10,6 +10,7 @@ const nav = [
   { label: "Resultados", to: "/resultados" as const },
   { label: "Consultar", to: "/consultar" as const },
   { label: "Billetera", to: "/billetera" as const },
+  { label: "Premios", to: "/premios" as const },
   { label: "Mi cuenta", to: "/cuenta" as const },
   { label: "Guía", to: "/guia" as const },
   { label: "Panel", to: "/panel" as const },
