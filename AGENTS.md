@@ -1,3 +1,4 @@
+Use `Brand` as the single source for the official Ross Fortuna logo across interfaces and printable views, so future branding stays consistent.
 <!-- LOVABLE:BEGIN -->
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting

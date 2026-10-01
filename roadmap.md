@@ -5,6 +5,7 @@
 - [x] Fase 1B: paneles base de Trabajador y Administración.
 - [x] Fase 2: billetera, recargas, libro de movimientos e historial.
 - [x] Fase 3: premios, vencimientos, retiros y reembolsos.
+- [x] Renovación de marca: logo oficial, variantes para interfaz, ticket/reportes y favicon.
 - [ ] Fase 4: vendedor, comisiones, contratas y jugadas programadas.
 - [ ] Fase 5: rifas especiales y Números Fortuna.
 - [ ] Fase 6: cuentas financieras, caja, dashboard y reportes.
