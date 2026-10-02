@@ -46,7 +46,7 @@ export function PanelShell({
   return (
     <div className="marble min-h-dvh overflow-x-clip">
       <header className="safe-top sticky top-0 z-40 border-b border-gold/25 bg-background/90 backdrop-blur-xl [-webkit-backdrop-filter:blur(20px)]">
-        <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:h-20 sm:px-6 lg:px-8">
+        <div className="mx-auto grid h-14 max-w-7xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 sm:h-16 sm:px-6 lg:px-8">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="velvet" size="icon" className="lg:hidden" aria-label="Abrir menú del panel">
@@ -62,10 +62,10 @@ export function PanelShell({
             </SheetContent>
           </Sheet>
           <Link to="/" aria-label="Ross Fortuna, inicio" className="flex min-w-0 items-center gap-2">
-            <Brand variant="monogram" className="h-11 w-11 shrink-0 lg:hidden" />
-            <Brand variant="wordmark" className="hidden truncate lg:block" />
+            <Brand variant="monogram" priority className="w-9 shrink-0 lg:hidden" />
+            <Brand variant="wordmark" priority className="hidden w-32 shrink-0 lg:block" />
           </Link>
-          <span className="ml-auto flex items-center gap-2 rounded-full border border-gold/50 bg-surface px-3 py-1.5 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-gold-deep">
+          <span className="flex shrink-0 items-center gap-2 rounded-full border border-gold/50 bg-surface px-3 py-1.5 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-gold-deep">
             <ShieldCheck className="h-4 w-4" strokeWidth={1.7} /> {role}
           </span>
         </div>

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { Check, Globe } from "lucide-react";
+import { Brand } from "@/components/brand/brand";
 import { cn } from "@/lib/utils";
 
 export function OriginTag({ origin }: { origin: string }) {
@@ -98,6 +99,7 @@ export function StoreBadges({ className }: { className?: string }) {
 export function SiteFoot() {
   return (
     <div className="mt-10 flex flex-col items-center gap-4">
+      <Brand variant="wordmark" className="max-w-28" />
       <p className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.26em] text-gold-deep">
         <Globe className="h-4 w-4" strokeWidth={1.6} /> rossfortuna.com
       </p>
