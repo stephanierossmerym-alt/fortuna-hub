@@ -31,7 +31,7 @@ export function TicketDigital({ ticket, showWorkerActions = true }: { ticket: Ti
         <div className="relative z-10 px-4 py-8 sm:px-8 sm:py-10">
           <div className="grid grid-cols-[4.5rem_minmax(0,1fr)_4.5rem] items-center gap-2 sm:grid-cols-[7rem_minmax(0,1fr)_7rem]">
             <p className="text-[0.48rem] font-semibold uppercase leading-[2.05] tracking-[0.24em] text-muted-foreground sm:text-[0.65rem]">Más<br />que<br />sorteos<br />grandes<br />historias</p>
-            <Brand variant="full" />
+            <Brand variant="full" className="mx-auto max-w-36 sm:max-w-48" />
             <p className="font-script -rotate-6 text-center text-xl leading-tight text-gold-deep sm:text-3xl">Juega<br />Participa<br />Gana ♡</p>
           </div>
 

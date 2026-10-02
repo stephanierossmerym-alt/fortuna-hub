@@ -1,4 +1,4 @@
-Use `Brand` as the single source for the official Ross Fortuna logo across interfaces and printable views, so future branding stays consistent.
+Use `Brand` with its `/public/brand` assets as the single source for the official Ross Fortuna logo across interfaces and printable views, so Netlify and Lovable resolve the same stable URLs.
 <!-- LOVABLE:BEGIN -->
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting

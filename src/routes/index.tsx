@@ -27,20 +27,20 @@ export const Route = createFileRoute("/")({
 function Portal() {
   const lastResult = results[0];
   return (
-    <AppShell className="space-y-14 py-8 sm:space-y-20">
-      <section className="relative isolate overflow-hidden rounded-card border border-gold/30 bg-card/75 px-5 py-12 shadow-ticket sm:px-12 sm:py-16">
+    <AppShell className="space-y-14 py-5 sm:space-y-20 sm:py-10">
+      <section className="relative isolate overflow-hidden rounded-card border border-gold/30 bg-card/75 px-5 py-8 shadow-ticket sm:px-10 sm:py-10 lg:px-12 lg:py-12">
         <GoldRibbon />
         <GoldRibbon position="bottom" />
         <div className="clover-watermark -left-16 top-1/4" aria-hidden>♣</div>
         <div className="relative z-10 mx-auto max-w-4xl">
-          <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_auto]">
-            <Brand variant="full" className="mx-auto max-w-lg" />
-            <p className="font-script -rotate-6 text-center text-3xl leading-tight text-gold-deep sm:text-5xl">
+          <div className="grid items-center gap-4 sm:gap-6 lg:grid-cols-[minmax(0,1fr)_auto]">
+            <Brand variant="full" priority className="mx-auto max-w-52 sm:max-w-64 lg:max-w-72" />
+            <p className="font-script -rotate-3 text-center text-2xl leading-tight text-gold-deep sm:text-4xl lg:-rotate-6">
               Más que sorteos,<br />grandes historias.
             </p>
           </div>
-          <GoldDivider className="mx-auto mt-8 max-w-2xl" />
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <GoldDivider className="mx-auto mt-5 max-w-2xl sm:mt-7" />
+          <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:justify-center">
             <Button asChild variant="fortune" size="lg">
               <Link to="/jugar">Comprar <ArrowRight /></Link>
             </Button>

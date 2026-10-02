@@ -20,10 +20,10 @@ export function AppShell({ children, className }: { children: ReactNode; classNa
   return (
     <div className="marble min-h-dvh overflow-x-clip pb-[calc(5rem+env(safe-area-inset-bottom))] sm:pb-0">
       <header className="safe-top sticky top-0 z-40 border-b border-gold/25 bg-background/88 backdrop-blur-xl [-webkit-backdrop-filter:blur(20px)]">
-        <div className="mx-auto grid h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:h-20 sm:px-6 lg:px-8">
+        <div className="mx-auto grid h-14 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:h-16 sm:px-6 lg:px-8">
           <Link to="/" aria-label="Ross Fortuna, inicio" className="flex min-w-0 items-center gap-2">
-            <Brand variant="monogram" className="h-12 w-12 shrink-0 sm:hidden" />
-            <Brand variant="wordmark" className="hidden truncate sm:block" />
+            <Brand variant="monogram" priority className="w-10 shrink-0 sm:hidden" />
+            <Brand variant="wordmark" priority className="hidden w-32 shrink-0 sm:block lg:w-36" />
           </Link>
           <nav className="hidden items-center gap-2 sm:flex" aria-label="Navegación principal">
             {nav.map((item) => <Link key={item.to} to={item.to} activeProps={{ className: "bg-surface text-gold-deep" }} className="flex min-h-12 items-center rounded-button px-4 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground">{item.label}</Link>)}

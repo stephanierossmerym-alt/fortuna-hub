@@ -31,7 +31,7 @@ function StyleGuide() {
   return <AppShell>
     <header className="relative overflow-hidden rounded-card border border-gold/30 bg-card/70 px-5 py-10 text-center shadow-warm sm:px-10 sm:py-14">
       <div className="clover-watermark -left-12 -top-14" aria-hidden>♣</div>
-      <Brand variant="full" className="relative mx-auto max-w-md" />
+      <Brand variant="full" priority className="relative mx-auto max-w-48 sm:max-w-60" />
       <p className="font-script mx-auto mt-5 max-w-md -rotate-3 text-3xl text-gold-deep sm:text-4xl">Más que sorteos, grandes historias.</p>
       <GoldDivider className="mx-auto mt-6 max-w-md" />
       <p className="mt-4 text-xs font-bold uppercase tracking-[0.28em] text-gold-deep">Guía visual · Fase 0</p>
@@ -41,7 +41,7 @@ function StyleGuide() {
       ["Mármol", "bg-background"], ["Crema", "bg-surface"], ["Oro", "gold-metal"], ["Tinta", "bg-foreground"],
     ].map(([label, color]) => <Card key={label}><CardContent className="p-4"><div className={`h-24 rounded-info border border-gold/30 ${color}`} /><p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">{label}</p></CardContent></Card>)}</div></section>
 
-    <section className="pb-14"><SectionTitle eyebrow="Marca">Variantes del logotipo</SectionTitle><div className="mt-8 grid items-center gap-5 sm:grid-cols-3"><Card><CardContent className="flex min-h-48 items-center justify-center p-6"><Brand variant="full" /></CardContent></Card><Card><CardContent className="flex min-h-48 items-center justify-center p-6"><Brand variant="monogram" className="h-32 w-32" /></CardContent></Card><Card><CardContent className="flex min-h-48 items-center justify-center p-6"><Brand variant="wordmark" /></CardContent></Card></div></section>
+    <section className="pb-14"><SectionTitle eyebrow="Marca">Variantes del logotipo</SectionTitle><div className="mt-8 grid items-center gap-5 sm:grid-cols-3"><Card><CardContent className="flex min-h-48 items-center justify-center p-6"><Brand variant="full" className="max-w-44" /></CardContent></Card><Card><CardContent className="flex min-h-48 items-center justify-center p-6"><Brand variant="monogram" className="max-w-24" /></CardContent></Card><Card><CardContent className="flex min-h-48 items-center justify-center p-6"><Brand variant="wordmark" className="max-w-40" /></CardContent></Card></div></section>
 
     <section className="pb-14"><SectionTitle eyebrow="Interfaz">Controles y estados</SectionTitle><div className="mt-8 grid gap-5 lg:grid-cols-2"><Card><CardContent className="space-y-4 p-5 sm:p-7"><p className="text-xs font-bold uppercase tracking-[0.22em] text-gold-deep">Botones</p><div className="flex flex-wrap gap-3"><Button variant="fortune">Comprar <ChevronRight /></Button><Button variant="velvet">Consultar</Button><Button variant="ink">Imprimir</Button><Button variant="ghost">Cancelar</Button><Button variant="destructive">Anular</Button></div></CardContent></Card><Card><CardContent className="space-y-4 p-5 sm:p-7"><p className="text-xs font-bold uppercase tracking-[0.22em] text-gold-deep">Estados únicos</p><div className="flex flex-wrap gap-2">{statuses.map((status) => <StatusBadge key={status} status={status} />)}</div></CardContent></Card></div></section>
 

@@ -30,8 +30,8 @@ function Acceso() {
   return (
     <AppShell className="flex justify-center">
       <div className="w-full max-w-lg">
-        <Brand variant="full" className="mx-auto max-w-sm" />
-        <GoldDivider className="mx-auto mt-6 max-w-sm" />
+        <Brand variant="full" priority className="mx-auto max-w-40 sm:max-w-52" />
+        <GoldDivider className="mx-auto mt-4 max-w-sm" />
 
         <div className="mt-8 rounded-card border border-gold/35 bg-card p-6 shadow-warm">
           <Tabs defaultValue="login">
