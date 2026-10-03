@@ -5,6 +5,14 @@ export const workerNav = [
   { label: "Salir del panel", to: "/panel" },
 ];
 
+export const vendorNav = [
+  { label: "Resumen de vendedor", to: "/panel/vendedor" },
+  { label: "Contratas", to: "/panel/vendedor/contratas" },
+  { label: "Comisiones", to: "/panel/vendedor/comisiones" },
+  { label: "Nueva venta", to: "/jugar" },
+  { label: "Salir del panel", to: "/panel" },
+];
+
 export const adminNav = [
   { label: "Resumen", to: "/panel/admin" },
   { label: "Comprobantes", to: "/panel/admin/comprobantes" },
@@ -14,6 +22,8 @@ export const adminNav = [
   { label: "Sorteos y planes", to: "/panel/admin/sorteos" },
   { label: "Resultados", to: "/panel/admin/resultados" },
   { label: "Equipo y permisos", to: "/panel/admin/equipo" },
+  { label: "Red de ventas", to: "/panel/admin/ventas" },
   { label: "Auditoría", to: "/panel/admin/auditoria" },
   { label: "Panel de Trabajador", to: "/panel/trabajador" },
+  { label: "Panel de Vendedor", to: "/panel/vendedor" },
 ];

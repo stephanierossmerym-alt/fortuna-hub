@@ -51,24 +51,13 @@ function Cuenta() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-3">
-        {[
-          { label: "Programar mi jugada", icon: CalendarClock },
-          { label: "Agregar fondos", icon: PlusCircle },
-          { label: "Retirar", icon: ArrowDownToLine },
-        ].map((item) => (
-          <button
-            key={item.label}
-            type="button"
-            disabled
-            className="flex min-h-14 items-center justify-center gap-2 rounded-button border border-gold/35 bg-surface px-4 text-sm font-bold uppercase tracking-[0.12em] text-muted-foreground disabled:opacity-70"
-          >
-            <item.icon className="h-4 w-4" /> {item.label}
-          </button>
-        ))}
+        <Button variant="fortune" asChild><Link to="/jugadas-programadas"><CalendarClock /> Programar mi jugada</Link></Button>
+        <Button variant="velvet" asChild><Link to="/billetera"><PlusCircle /> Agregar fondos</Link></Button>
+        <Button variant="velvet" asChild><Link to="/premios"><ArrowDownToLine /> Retirar</Link></Button>
       </div>
       <Button asChild variant="fortune" className="w-full"><Link to="/billetera"><Wallet /> Ir a mi billetera · agregar fondos</Link></Button>
       <Button asChild variant="velvet" className="w-full"><Link to="/premios"><Trophy /> Mis premios y retiros</Link></Button>
-      <p className="text-center text-xs text-muted-foreground">Jugadas programadas llegan en la siguiente fase.</p>
+      <p className="text-center text-xs text-muted-foreground">Tus programaciones se ejecutan solo cuando existe saldo suficiente.</p>
 
       <section>
         <h2 className="font-display text-2xl font-semibold text-foreground">Mis tickets</h2>
