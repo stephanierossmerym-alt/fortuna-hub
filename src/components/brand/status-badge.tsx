@@ -9,7 +9,12 @@ export type AppStatus =
   | "Retiro solicitado"
   | "Solicitado"
   | "Cancelado"
-  | "Reembolsado";
+  | "Reembolsado"
+  | "Activa"
+  | "Pausada"
+  | "Ejecutada"
+  | "Cerrada"
+  | "No ejecutada — saldo insuficiente";
 
 const pending = "border-status-pending/40 bg-status-pending-soft text-status-pending";
 const review = "border-status-review/40 bg-status-review-soft text-status-review";
@@ -27,9 +32,14 @@ const styles: Record<AppStatus, string> = {
   "Pagado": success,
   "Acreditado a saldo": success,
   "Reembolsado": success,
+  "Activa": success,
+  "Ejecutada": success,
   "Rechazado": danger,
   "Anulado": danger,
   "Cancelado": expired,
+  "Pausada": review,
+  "Cerrada": expired,
+  "No ejecutada — saldo insuficiente": danger,
   "Vencido": expired,
   "Ganador": gold,
   "Generado": gold,

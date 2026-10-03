@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { KeyRound, ShieldCheck, Store } from "lucide-react";
+import { BriefcaseBusiness, KeyRound, ShieldCheck, Store } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { SectionTitle, GoldDivider } from "@/components/brand/ornaments";
 import { WarningNote, ConfirmCheck } from "@/components/common/pieces";
@@ -66,7 +66,7 @@ function PanelAccess() {
               <p className="text-xs text-muted-foreground">Demostración: el código enviado al teléfono registrado es 504217.</p>
             </div>
             {verified && <ConfirmCheck title="Identidad verificada" description="Elige el panel al que deseas ingresar." />}
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-3">
               <Button variant="velvet" asChild disabled={!verified}>
                 <Link to="/panel/trabajador" disabled={!verified}>
                   <Store /> Trabajador
@@ -75,6 +75,11 @@ function PanelAccess() {
               <Button variant="fortune" asChild disabled={!verified}>
                 <Link to="/panel/admin" disabled={!verified}>
                   <ShieldCheck /> Administración
+                </Link>
+              </Button>
+              <Button variant="velvet" asChild disabled={!verified}>
+                <Link to="/panel/vendedor" disabled={!verified}>
+                  <BriefcaseBusiness /> Vendedor
                 </Link>
               </Button>
             </div>
