@@ -35,7 +35,7 @@ function ScheduledPlaysPage() {
   const toggle = (id: string) => setPlays((current) => current.map((play) => {
     if (play.id !== id || play.status === "Cancelada" || play.status === "Ejecutada" || play.status === "No ejecutada — saldo insuficiente") return play;
     const nextStatus = play.status === "Activa" ? "Pausada" : "Activa";
-    return { ...play, status: nextStatus, nextRun: nextStatus === "Activa" ? `Próximo ${draw}` : "Pausada por el cliente", history: [{ id: `H-${Date.now()}`, when: "Ahora", change: nextStatus, detail: `${nextStatus} por Rossmery M.` }, ...play.history] };
+    return { ...play, status: nextStatus, nextRun: nextStatus === "Activa" ? `Próximo ${play.draw}` : "Pausada por el cliente", history: [{ id: `H-${Date.now()}`, when: "Ahora", change: nextStatus, detail: `${nextStatus} por Rossmery M.` }, ...play.history] };
   }));
 
   const cancel = (id: string) => setPlays((current) => current.map((play) => play.id === id ? { ...play, status: "Cancelada", nextRun: "Cancelada", history: [{ id: `H-${Date.now()}`, when: "Ahora", change: "Cancelada", detail: "Cancelada por Rossmery M.; no se generarán nuevos tickets." }, ...play.history] } : play));

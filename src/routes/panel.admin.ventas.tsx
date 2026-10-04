@@ -24,7 +24,7 @@ export const Route = createFileRoute("/panel/admin/ventas")({
 function AdminSalesNetwork() {
   const [lots, setLots] = useState<ContractLot[]>(initialContractLots);
   const receivable = lots.reduce((sum, lot) => sum + lot.receivable, 0);
-  const authorize = (id: string) => setLots((current) => current.map((lot) => lot.id === id ? { ...lot, creditStatus: "Autorizado", receivable: Math.max(lot.receivable, (lot.sold - lot.collected) * lot.unitPrice) } : lot));
+  const authorize = (id: string) => setLots((current) => current.map((lot) => lot.id === id ? { ...lot, creditStatus: "Autorizado", receivable: Math.max(lot.receivable, (lot.sold * lot.unitPrice) - lot.collected) } : lot));
 
   return (
     <PanelShell role="Administración" subtitle="Vendedores, comisiones y contratas" items={adminNav}>
