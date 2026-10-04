@@ -9,6 +9,7 @@ export type AppStatus =
   | "Retiro solicitado"
   | "Solicitado"
   | "Cancelado"
+  | "Cancelada"
   | "Reembolsado"
   | "Activa"
   | "Pausada"
@@ -37,6 +38,7 @@ const styles: Record<AppStatus, string> = {
   "Rechazado": danger,
   "Anulado": danger,
   "Cancelado": expired,
+  "Cancelada": expired,
   "Pausada": review,
   "Cerrada": expired,
   "No ejecutada — saldo insuficiente": danger,
