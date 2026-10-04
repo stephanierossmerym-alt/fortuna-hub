@@ -15,6 +15,7 @@ import { Route as BilleteraRouteImport } from './routes/billetera'
 import { Route as ConsultarRouteImport } from './routes/consultar'
 import { Route as CuentaRouteImport } from './routes/cuenta'
 import { Route as GuiaRouteImport } from './routes/guia'
+import { Route as JugadasProgramadasRouteImport } from './routes/jugadas-programadas'
 import { Route as JugarRouteImport } from './routes/jugar'
 import { Route as PanelRouteImport } from './routes/panel'
 import { Route as PremiosRouteImport } from './routes/premios'
@@ -63,6 +64,11 @@ const CuentaRoute = CuentaRouteImport.update({
 const GuiaRoute = GuiaRouteImport.update({
   id: '/guia',
   path: '/guia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JugadasProgramadasRoute = JugadasProgramadasRouteImport.update({
+  id: '/jugadas-programadas',
+  path: '/jugadas-programadas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JugarRoute = JugarRouteImport.update({
@@ -168,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/consultar': typeof ConsultarRoute
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
+  '/jugadas-programadas': typeof JugadasProgramadasRoute
   '/jugar': typeof JugarRoute
   '/panel': typeof PanelRouteWithChildren
   '/premios': typeof PremiosRoute
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/consultar': typeof ConsultarRoute
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
+  '/jugadas-programadas': typeof JugadasProgramadasRoute
   '/jugar': typeof JugarRoute
   '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/consultar': typeof ConsultarRoute
   '/cuenta': typeof CuentaRoute
   '/guia': typeof GuiaRoute
+  '/jugadas-programadas': typeof JugadasProgramadasRoute
   '/jugar': typeof JugarRoute
   '/panel': typeof PanelRouteWithChildren
   '/premios': typeof PremiosRoute
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/consultar'
     | '/cuenta'
     | '/guia'
+    | '/jugadas-programadas'
     | '/jugar'
     | '/panel'
     | '/premios'
@@ -278,6 +288,7 @@ export interface FileRouteTypes {
     | '/consultar'
     | '/cuenta'
     | '/guia'
+    | '/jugadas-programadas'
     | '/jugar'
     | '/premios'
     | '/resultados'
@@ -304,6 +315,7 @@ export interface FileRouteTypes {
     | '/consultar'
     | '/cuenta'
     | '/guia'
+    | '/jugadas-programadas'
     | '/jugar'
     | '/panel'
     | '/premios'
@@ -332,6 +344,7 @@ export interface RootRouteChildren {
   ConsultarRoute: typeof ConsultarRoute
   CuentaRoute: typeof CuentaRoute
   GuiaRoute: typeof GuiaRoute
+  JugadasProgramadasRoute: typeof JugadasProgramadasRoute
   JugarRoute: typeof JugarRoute
   PanelRoute: typeof PanelRouteWithChildren
   PremiosRoute: typeof PremiosRoute
@@ -380,6 +393,13 @@ declare module '@tanstack/react-router' {
       path: '/guia'
       fullPath: '/guia'
       preLoaderRoute: typeof GuiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jugadas-programadas': {
+      id: '/jugadas-programadas'
+      path: '/jugadas-programadas'
+      fullPath: '/jugadas-programadas'
+      preLoaderRoute: typeof JugadasProgramadasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/jugar': {
@@ -573,6 +593,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConsultarRoute: ConsultarRoute,
   CuentaRoute: CuentaRoute,
   GuiaRoute: GuiaRoute,
+  JugadasProgramadasRoute: JugadasProgramadasRoute,
   JugarRoute: JugarRoute,
   PanelRoute: PanelRouteWithChildren,
   PremiosRoute: PremiosRoute,
