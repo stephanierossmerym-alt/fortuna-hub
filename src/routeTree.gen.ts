@@ -21,6 +21,7 @@ import { Route as PremiosRouteImport } from './routes/premios'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as PanelIndexRouteImport } from './routes/panel.index'
 import { Route as PanelTrabajadorRouteImport } from './routes/panel.trabajador'
+import { Route as PanelVendedorRouteImport } from './routes/panel.vendedor'
 import { Route as PanelAdminIndexRouteImport } from './routes/panel.admin.index'
 import { Route as PanelAdminAuditoriaRouteImport } from './routes/panel.admin.auditoria'
 import { Route as PanelAdminComprobantesRouteImport } from './routes/panel.admin.comprobantes'
@@ -30,6 +31,9 @@ import { Route as PanelAdminRecargasRouteImport } from './routes/panel.admin.rec
 import { Route as PanelAdminResultadosRouteImport } from './routes/panel.admin.resultados'
 import { Route as PanelAdminSorteosRouteImport } from './routes/panel.admin.sorteos'
 import { Route as PanelAdminTicketsRouteImport } from './routes/panel.admin.tickets'
+import { Route as PanelAdminVentasRouteImport } from './routes/panel.admin.ventas'
+import { Route as PanelVendedorComisionesRouteImport } from './routes/panel.vendedor.comisiones'
+import { Route as PanelVendedorContratasRouteImport } from './routes/panel.vendedor.contratas'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -91,6 +95,11 @@ const PanelTrabajadorRoute = PanelTrabajadorRouteImport.update({
   path: '/trabajador',
   getParentRoute: () => PanelRoute,
 } as any)
+const PanelVendedorRoute = PanelVendedorRouteImport.update({
+  id: '/vendedor',
+  path: '/vendedor',
+  getParentRoute: () => PanelRoute,
+} as any)
 const PanelAdminIndexRoute = PanelAdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
@@ -136,6 +145,21 @@ const PanelAdminTicketsRoute = PanelAdminTicketsRouteImport.update({
   path: '/admin/tickets',
   getParentRoute: () => PanelRoute,
 } as any)
+const PanelAdminVentasRoute = PanelAdminVentasRouteImport.update({
+  id: '/admin/ventas',
+  path: '/admin/ventas',
+  getParentRoute: () => PanelRoute,
+} as any)
+const PanelVendedorComisionesRoute = PanelVendedorComisionesRouteImport.update({
+  id: '/comisiones',
+  path: '/comisiones',
+  getParentRoute: () => PanelVendedorRoute,
+} as any)
+const PanelVendedorContratasRoute = PanelVendedorContratasRouteImport.update({
+  id: '/contratas',
+  path: '/contratas',
+  getParentRoute: () => PanelVendedorRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -149,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
+  '/panel/vendedor': typeof PanelVendedorRouteWithChildren
   '/panel/': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
@@ -158,6 +183,9 @@ export interface FileRoutesByFullPath {
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
+  '/panel/admin/ventas': typeof PanelAdminVentasRoute
+  '/panel/vendedor/comisiones': typeof PanelVendedorComisionesRoute
+  '/panel/vendedor/contratas': typeof PanelVendedorContratasRoute
   '/panel/admin/': typeof PanelAdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -171,6 +199,7 @@ export interface FileRoutesByTo {
   '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
+  '/panel/vendedor': typeof PanelVendedorRouteWithChildren
   '/panel': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
@@ -180,6 +209,9 @@ export interface FileRoutesByTo {
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
+  '/panel/admin/ventas': typeof PanelAdminVentasRoute
+  '/panel/vendedor/comisiones': typeof PanelVendedorComisionesRoute
+  '/panel/vendedor/contratas': typeof PanelVendedorContratasRoute
   '/panel/admin': typeof PanelAdminIndexRoute
 }
 export interface FileRoutesById {
@@ -195,6 +227,7 @@ export interface FileRoutesById {
   '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
+  '/panel/vendedor': typeof PanelVendedorRouteWithChildren
   '/panel/': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
@@ -204,6 +237,9 @@ export interface FileRoutesById {
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
+  '/panel/admin/ventas': typeof PanelAdminVentasRoute
+  '/panel/vendedor/comisiones': typeof PanelVendedorComisionesRoute
+  '/panel/vendedor/contratas': typeof PanelVendedorContratasRoute
   '/panel/admin/': typeof PanelAdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -220,6 +256,7 @@ export interface FileRouteTypes {
     | '/premios'
     | '/resultados'
     | '/panel/trabajador'
+    | '/panel/vendedor'
     | '/panel/'
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
@@ -229,6 +266,9 @@ export interface FileRouteTypes {
     | '/panel/admin/resultados'
     | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
+    | '/panel/admin/ventas'
+    | '/panel/vendedor/comisiones'
+    | '/panel/vendedor/contratas'
     | '/panel/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -242,6 +282,7 @@ export interface FileRouteTypes {
     | '/premios'
     | '/resultados'
     | '/panel/trabajador'
+    | '/panel/vendedor'
     | '/panel'
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
@@ -251,6 +292,9 @@ export interface FileRouteTypes {
     | '/panel/admin/resultados'
     | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
+    | '/panel/admin/ventas'
+    | '/panel/vendedor/comisiones'
+    | '/panel/vendedor/contratas'
     | '/panel/admin'
   id:
     | '__root__'
@@ -265,6 +309,7 @@ export interface FileRouteTypes {
     | '/premios'
     | '/resultados'
     | '/panel/trabajador'
+    | '/panel/vendedor'
     | '/panel/'
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
@@ -274,6 +319,9 @@ export interface FileRouteTypes {
     | '/panel/admin/resultados'
     | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
+    | '/panel/admin/ventas'
+    | '/panel/vendedor/comisiones'
+    | '/panel/vendedor/contratas'
     | '/panel/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -376,6 +424,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelTrabajadorRouteImport
       parentRoute: typeof PanelRoute
     }
+    '/panel/vendedor': {
+      id: '/panel/vendedor'
+      path: '/vendedor'
+      fullPath: '/panel/vendedor'
+      preLoaderRoute: typeof PanelVendedorRouteImport
+      parentRoute: typeof PanelRoute
+    }
     '/panel/admin/': {
       id: '/panel/admin/'
       path: '/admin'
@@ -439,11 +494,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelAdminTicketsRouteImport
       parentRoute: typeof PanelRoute
     }
+    '/panel/admin/ventas': {
+      id: '/panel/admin/ventas'
+      path: '/admin/ventas'
+      fullPath: '/panel/admin/ventas'
+      preLoaderRoute: typeof PanelAdminVentasRouteImport
+      parentRoute: typeof PanelRoute
+    }
+    '/panel/vendedor/comisiones': {
+      id: '/panel/vendedor/comisiones'
+      path: '/comisiones'
+      fullPath: '/panel/vendedor/comisiones'
+      preLoaderRoute: typeof PanelVendedorComisionesRouteImport
+      parentRoute: typeof PanelVendedorRoute
+    }
+    '/panel/vendedor/contratas': {
+      id: '/panel/vendedor/contratas'
+      path: '/contratas'
+      fullPath: '/panel/vendedor/contratas'
+      preLoaderRoute: typeof PanelVendedorContratasRouteImport
+      parentRoute: typeof PanelVendedorRoute
+    }
   }
 }
 
+interface PanelVendedorRouteChildren {
+  PanelVendedorComisionesRoute: typeof PanelVendedorComisionesRoute
+  PanelVendedorContratasRoute: typeof PanelVendedorContratasRoute
+}
+
+const PanelVendedorRouteChildren: PanelVendedorRouteChildren = {
+  PanelVendedorComisionesRoute: PanelVendedorComisionesRoute,
+  PanelVendedorContratasRoute: PanelVendedorContratasRoute,
+}
+
+const PanelVendedorRouteWithChildren = PanelVendedorRoute._addFileChildren(
+  PanelVendedorRouteChildren,
+)
+
 interface PanelRouteChildren {
   PanelTrabajadorRoute: typeof PanelTrabajadorRoute
+  PanelVendedorRoute: typeof PanelVendedorRouteWithChildren
   PanelIndexRoute: typeof PanelIndexRoute
   PanelAdminAuditoriaRoute: typeof PanelAdminAuditoriaRoute
   PanelAdminComprobantesRoute: typeof PanelAdminComprobantesRoute
@@ -453,11 +544,13 @@ interface PanelRouteChildren {
   PanelAdminResultadosRoute: typeof PanelAdminResultadosRoute
   PanelAdminSorteosRoute: typeof PanelAdminSorteosRoute
   PanelAdminTicketsRoute: typeof PanelAdminTicketsRoute
+  PanelAdminVentasRoute: typeof PanelAdminVentasRoute
   PanelAdminIndexRoute: typeof PanelAdminIndexRoute
 }
 
 const PanelRouteChildren: PanelRouteChildren = {
   PanelTrabajadorRoute: PanelTrabajadorRoute,
+  PanelVendedorRoute: PanelVendedorRouteWithChildren,
   PanelIndexRoute: PanelIndexRoute,
   PanelAdminAuditoriaRoute: PanelAdminAuditoriaRoute,
   PanelAdminComprobantesRoute: PanelAdminComprobantesRoute,
@@ -467,6 +560,7 @@ const PanelRouteChildren: PanelRouteChildren = {
   PanelAdminResultadosRoute: PanelAdminResultadosRoute,
   PanelAdminSorteosRoute: PanelAdminSorteosRoute,
   PanelAdminTicketsRoute: PanelAdminTicketsRoute,
+  PanelAdminVentasRoute: PanelAdminVentasRoute,
   PanelAdminIndexRoute: PanelAdminIndexRoute,
 }
 
