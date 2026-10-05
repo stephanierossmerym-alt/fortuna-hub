@@ -1,5 +1,7 @@
+import { Link } from "@tanstack/react-router";
 import { Gift } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
 import type { SpecialRaffle } from "@/data/special-raffles";
 import { cn } from "@/lib/utils";
 
@@ -39,6 +41,9 @@ export function RaffleCard({ raffle }: { raffle: SpecialRaffle }) {
             {complete ? "Rifa completamente vendida — lista para sorteo" : raffle.closing}
           </p>
         </div>
+        <Button asChild variant={complete ? "velvet" : "fortune"} className="mt-5 w-full" disabled={complete}>
+          <Link to="/rifas-especiales" search={{ rifa: raffle.id }}>{complete ? "Venta finalizada" : "Participar"}</Link>
+        </Button>
       </div>
     </article>
   );

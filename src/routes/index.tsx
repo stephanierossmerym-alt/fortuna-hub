@@ -99,6 +99,9 @@ function Portal() {
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {specialRaffles.map((raffle) => <RaffleCard key={raffle.id} raffle={raffle} />)}
         </div>
+        <div className="mt-6 flex justify-center">
+          <Button asChild variant="fortune"><Link to="/rifas-especiales"><Gift /> Ver y comprar rifas especiales</Link></Button>
+        </div>
       </section>
 
       <section className="rounded-card border border-gold/35 bg-surface px-6 py-10 text-center">

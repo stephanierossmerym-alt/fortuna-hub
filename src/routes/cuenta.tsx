@@ -25,7 +25,7 @@ export const Route = createFileRoute("/cuenta")({
 const quickActions = [
   { label: "Jugar Matutina", icon: TicketIcon, to: "/jugar" as const, search: { sorteo: "matutina" } },
   { label: "Jugar Noche", icon: TicketIcon, to: "/jugar" as const, search: { sorteo: "noche" } },
-  { label: "Rifas Especiales", icon: Gift, to: "/" as const, search: {} },
+  { label: "Rifas Especiales", icon: Gift, to: "/rifas-especiales" as const, search: {} },
   { label: "Mis Tickets", icon: TicketIcon, to: "/consultar" as const, search: {} },
 ];
 
