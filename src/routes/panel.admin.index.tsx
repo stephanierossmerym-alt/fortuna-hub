@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ClipboardList, FileCheck2, Ticket as TicketIcon, Trophy } from "lucide-react";
+import { ClipboardList, FileCheck2, Gift, Ticket as TicketIcon, Trophy } from "lucide-react";
 import { PanelShell } from "@/components/layout/panel-shell";
 import { adminNav } from "@/components/layout/panel-nav";
 import { SectionTitle } from "@/components/brand/ornaments";
@@ -46,6 +46,8 @@ function AdminHome() {
         <Button variant="velvet" asChild><Link to="/panel/admin/tickets">Buscar tickets</Link></Button>
         <Button variant="velvet" asChild><Link to="/panel/admin/resultados">Publicar resultados</Link></Button>
         <Button variant="velvet" asChild><Link to="/panel/admin/sorteos">Sorteos y planes</Link></Button>
+        <Button variant="velvet" asChild><Link to="/panel/admin/rifas-especiales"><Gift /> Rifas especiales</Link></Button>
+        <Button variant="velvet" asChild><Link to="/panel/admin/numeros-fortuna">Números Fortuna</Link></Button>
         <Button variant="velvet" asChild><Link to="/panel/admin/equipo">Equipo y permisos</Link></Button>
         <Button variant="velvet" asChild><Link to="/panel/admin/auditoria">Ver auditoría</Link></Button>
       </div>

@@ -16,6 +16,7 @@ export type AppStatus =
   | "Ejecutada"
   | "Cerrada"
   | "No ejecutada — saldo insuficiente";
+  | "Pago pendiente";
 
 const pending = "border-status-pending/40 bg-status-pending-soft text-status-pending";
 const review = "border-status-review/40 bg-status-review-soft text-status-review";
@@ -42,6 +43,7 @@ const styles: Record<AppStatus, string> = {
   "Pausada": review,
   "Cerrada": expired,
   "No ejecutada — saldo insuficiente": danger,
+  "Pago pendiente": pending,
   "Vencido": expired,
   "Ganador": gold,
   "Generado": gold,

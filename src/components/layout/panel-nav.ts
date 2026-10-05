@@ -20,6 +20,8 @@ export const adminNav = [
   { label: "Premios y retiros", to: "/panel/admin/premios" },
   { label: "Tickets", to: "/panel/admin/tickets" },
   { label: "Sorteos y planes", to: "/panel/admin/sorteos" },
+  { label: "Rifas especiales", to: "/panel/admin/rifas-especiales" },
+  { label: "Números Fortuna", to: "/panel/admin/numeros-fortuna" },
   { label: "Resultados", to: "/panel/admin/resultados" },
   { label: "Equipo y permisos", to: "/panel/admin/equipo" },
   { label: "Red de ventas", to: "/panel/admin/ventas" },

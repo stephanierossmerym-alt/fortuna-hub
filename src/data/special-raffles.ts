@@ -18,6 +18,33 @@ export type SpecialRaffle = {
   tone: "gold" | "cream" | "sand";
 };
 
+export type SpecialPurchaseStatus = "Pago pendiente" | "En revisión" | "Aprobado" | "Rechazado";
+
+export type SpecialPurchase = {
+  id: string;
+  raffleId: string;
+  raffleName: string;
+  customer: string;
+  phone: string;
+  packageLabel: string;
+  chances: number;
+  total: number;
+  receipt: string;
+  status: SpecialPurchaseStatus;
+  createdAt: string;
+  verifiedAt?: string;
+  reviewer?: string;
+  numbers: string[];
+};
+
+export type FortuneNumber = {
+  id: string;
+  number: string;
+  prize: number;
+  active: boolean;
+  createdAt: string;
+};
+
 export const specialRaffles: SpecialRaffle[] = [
   {
     id: "moto",
@@ -64,4 +91,42 @@ export const specialRaffles: SpecialRaffle[] = [
     ],
     tone: "sand",
   },
+];
+
+export const initialSpecialPurchases: SpecialPurchase[] = [
+  {
+    id: "RF-4589",
+    raffleId: "moto",
+    raffleName: "Rifa de Moto",
+    customer: "Invitado RF-104",
+    phone: "099 ••• 4821",
+    packageLabel: "10 oportunidades",
+    chances: 10,
+    total: 10,
+    receipt: "comprobante-rf4589.jpg",
+    status: "Pago pendiente",
+    createdAt: "Sábado 12 de Septiembre del 2026 · 18:42:09",
+    numbers: [],
+  },
+  {
+    id: "RF-4577",
+    raffleId: "canasta",
+    raffleName: "Canasta Fortuna",
+    customer: "Rossmery M.",
+    phone: "098 ••• 7714",
+    packageLabel: "3 oportunidades",
+    chances: 3,
+    total: 5,
+    receipt: "comprobante-rf4577.jpg",
+    status: "Aprobado",
+    createdAt: "Viernes 11 de Septiembre del 2026 · 16:12:33",
+    verifiedAt: "Viernes 11 de Septiembre del 2026 · 16:21:08",
+    reviewer: "Administrador RF-01",
+    numbers: ["18472", "62091", "73905"],
+  },
+];
+
+export const initialFortuneNumbers: FortuneNumber[] = [
+  { id: "NF-02746", number: "02746", prize: 100, active: true, createdAt: "01/09/2026 · 09:00" },
+  { id: "NF-34872", number: "34872", prize: 500, active: true, createdAt: "01/09/2026 · 09:04" },
 ];
