@@ -58,6 +58,7 @@ export const specialRaffles: SpecialRaffle[] = [
     packages: [
       { id: "moto-1", label: "1 oportunidad", price: 1, chances: 1 },
       { id: "moto-5", label: "5 oportunidades", price: 1, chances: 5 },
+      { id: "moto-10", label: "10 oportunidades", price: 10, chances: 10 },
     ],
     tone: "gold",
   },

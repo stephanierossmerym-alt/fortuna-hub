@@ -15,7 +15,7 @@ export type AppStatus =
   | "Pausada"
   | "Ejecutada"
   | "Cerrada"
-  | "No ejecutada — saldo insuficiente";
+  | "No ejecutada — saldo insuficiente"
   | "Pago pendiente";
 
 const pending = "border-status-pending/40 bg-status-pending-soft text-status-pending";
