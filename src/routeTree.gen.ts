@@ -20,6 +20,7 @@ import { Route as JugarRouteImport } from './routes/jugar'
 import { Route as PanelRouteImport } from './routes/panel'
 import { Route as PremiosRouteImport } from './routes/premios'
 import { Route as ResultadosRouteImport } from './routes/resultados'
+import { Route as RifasEspecialesRouteImport } from './routes/rifas-especiales'
 import { Route as PanelIndexRouteImport } from './routes/panel.index'
 import { Route as PanelTrabajadorRouteImport } from './routes/panel.trabajador'
 import { Route as PanelAdminIndexRouteImport } from './routes/panel.admin.index'
@@ -89,6 +90,11 @@ const PremiosRoute = PremiosRouteImport.update({
 const ResultadosRoute = ResultadosRouteImport.update({
   id: '/resultados',
   path: '/resultados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RifasEspecialesRoute = RifasEspecialesRouteImport.update({
+  id: '/rifas-especiales',
+  path: '/rifas-especiales',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PanelIndexRoute = PanelIndexRouteImport.update({
@@ -179,6 +185,7 @@ export interface FileRoutesByFullPath {
   '/panel': typeof PanelRouteWithChildren
   '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
+  '/rifas-especiales': typeof RifasEspecialesRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel/': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
@@ -206,6 +213,7 @@ export interface FileRoutesByTo {
   '/jugar': typeof JugarRoute
   '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
+  '/rifas-especiales': typeof RifasEspecialesRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
@@ -235,6 +243,7 @@ export interface FileRoutesById {
   '/panel': typeof PanelRouteWithChildren
   '/premios': typeof PremiosRoute
   '/resultados': typeof ResultadosRoute
+  '/rifas-especiales': typeof RifasEspecialesRoute
   '/panel/trabajador': typeof PanelTrabajadorRoute
   '/panel/': typeof PanelIndexRoute
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
@@ -265,6 +274,7 @@ export interface FileRouteTypes {
     | '/panel'
     | '/premios'
     | '/resultados'
+    | '/rifas-especiales'
     | '/panel/trabajador'
     | '/panel/'
     | '/panel/admin/auditoria'
@@ -292,6 +302,7 @@ export interface FileRouteTypes {
     | '/jugar'
     | '/premios'
     | '/resultados'
+    | '/rifas-especiales'
     | '/panel/trabajador'
     | '/panel'
     | '/panel/admin/auditoria'
@@ -320,6 +331,7 @@ export interface FileRouteTypes {
     | '/panel'
     | '/premios'
     | '/resultados'
+    | '/rifas-especiales'
     | '/panel/trabajador'
     | '/panel/'
     | '/panel/admin/auditoria'
@@ -349,6 +361,7 @@ export interface RootRouteChildren {
   PanelRoute: typeof PanelRouteWithChildren
   PremiosRoute: typeof PremiosRoute
   ResultadosRoute: typeof ResultadosRoute
+  RifasEspecialesRoute: typeof RifasEspecialesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -428,6 +441,13 @@ declare module '@tanstack/react-router' {
       path: '/resultados'
       fullPath: '/resultados'
       preLoaderRoute: typeof ResultadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rifas-especiales': {
+      id: '/rifas-especiales'
+      path: '/rifas-especiales'
+      fullPath: '/rifas-especiales'
+      preLoaderRoute: typeof RifasEspecialesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/panel/': {
@@ -588,6 +608,7 @@ const rootRouteChildren: RootRouteChildren = {
   PanelRoute: PanelRouteWithChildren,
   PremiosRoute: PremiosRoute,
   ResultadosRoute: ResultadosRoute,
+  RifasEspecialesRoute: RifasEspecialesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
