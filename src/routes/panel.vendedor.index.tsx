@@ -8,7 +8,7 @@ import { MoneyTrace, OriginTag, StatCard, WarningNote } from "@/components/commo
 import { Button } from "@/components/ui/button";
 import { initialContractLots, vendorProfile, vendorSales } from "@/data/sales-network";
 
-export const Route = createFileRoute("/panel/vendedor")({
+export const Route = createFileRoute("/panel/vendedor/")({
   head: () => ({
     meta: [
       { title: "Panel de Vendedor — Ross Fortuna" },
