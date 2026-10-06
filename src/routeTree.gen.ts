@@ -27,9 +27,11 @@ import { Route as PanelAdminIndexRouteImport } from './routes/panel.admin.index'
 import { Route as PanelAdminAuditoriaRouteImport } from './routes/panel.admin.auditoria'
 import { Route as PanelAdminComprobantesRouteImport } from './routes/panel.admin.comprobantes'
 import { Route as PanelAdminEquipoRouteImport } from './routes/panel.admin.equipo'
+import { Route as PanelAdminNumerosFortunaRouteImport } from './routes/panel.admin.numeros-fortuna'
 import { Route as PanelAdminPremiosRouteImport } from './routes/panel.admin.premios'
 import { Route as PanelAdminRecargasRouteImport } from './routes/panel.admin.recargas'
 import { Route as PanelAdminResultadosRouteImport } from './routes/panel.admin.resultados'
+import { Route as PanelAdminRifasEspecialesRouteImport } from './routes/panel.admin.rifas-especiales'
 import { Route as PanelAdminSorteosRouteImport } from './routes/panel.admin.sorteos'
 import { Route as PanelAdminTicketsRouteImport } from './routes/panel.admin.tickets'
 import { Route as PanelAdminVentasRouteImport } from './routes/panel.admin.ventas'
@@ -127,6 +129,12 @@ const PanelAdminEquipoRoute = PanelAdminEquipoRouteImport.update({
   path: '/admin/equipo',
   getParentRoute: () => PanelRoute,
 } as any)
+const PanelAdminNumerosFortunaRoute =
+  PanelAdminNumerosFortunaRouteImport.update({
+    id: '/admin/numeros-fortuna',
+    path: '/admin/numeros-fortuna',
+    getParentRoute: () => PanelRoute,
+  } as any)
 const PanelAdminPremiosRoute = PanelAdminPremiosRouteImport.update({
   id: '/admin/premios',
   path: '/admin/premios',
@@ -142,6 +150,12 @@ const PanelAdminResultadosRoute = PanelAdminResultadosRouteImport.update({
   path: '/admin/resultados',
   getParentRoute: () => PanelRoute,
 } as any)
+const PanelAdminRifasEspecialesRoute =
+  PanelAdminRifasEspecialesRouteImport.update({
+    id: '/admin/rifas-especiales',
+    path: '/admin/rifas-especiales',
+    getParentRoute: () => PanelRoute,
+  } as any)
 const PanelAdminSorteosRoute = PanelAdminSorteosRouteImport.update({
   id: '/admin/sorteos',
   path: '/admin/sorteos',
@@ -191,9 +205,11 @@ export interface FileRoutesByFullPath {
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
   '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/numeros-fortuna': typeof PanelAdminNumerosFortunaRoute
   '/panel/admin/premios': typeof PanelAdminPremiosRoute
   '/panel/admin/recargas': typeof PanelAdminRecargasRoute
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
+  '/panel/admin/rifas-especiales': typeof PanelAdminRifasEspecialesRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
   '/panel/admin/ventas': typeof PanelAdminVentasRoute
@@ -219,9 +235,11 @@ export interface FileRoutesByTo {
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
   '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/numeros-fortuna': typeof PanelAdminNumerosFortunaRoute
   '/panel/admin/premios': typeof PanelAdminPremiosRoute
   '/panel/admin/recargas': typeof PanelAdminRecargasRoute
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
+  '/panel/admin/rifas-especiales': typeof PanelAdminRifasEspecialesRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
   '/panel/admin/ventas': typeof PanelAdminVentasRoute
@@ -249,9 +267,11 @@ export interface FileRoutesById {
   '/panel/admin/auditoria': typeof PanelAdminAuditoriaRoute
   '/panel/admin/comprobantes': typeof PanelAdminComprobantesRoute
   '/panel/admin/equipo': typeof PanelAdminEquipoRoute
+  '/panel/admin/numeros-fortuna': typeof PanelAdminNumerosFortunaRoute
   '/panel/admin/premios': typeof PanelAdminPremiosRoute
   '/panel/admin/recargas': typeof PanelAdminRecargasRoute
   '/panel/admin/resultados': typeof PanelAdminResultadosRoute
+  '/panel/admin/rifas-especiales': typeof PanelAdminRifasEspecialesRoute
   '/panel/admin/sorteos': typeof PanelAdminSorteosRoute
   '/panel/admin/tickets': typeof PanelAdminTicketsRoute
   '/panel/admin/ventas': typeof PanelAdminVentasRoute
@@ -280,9 +300,11 @@ export interface FileRouteTypes {
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
     | '/panel/admin/equipo'
+    | '/panel/admin/numeros-fortuna'
     | '/panel/admin/premios'
     | '/panel/admin/recargas'
     | '/panel/admin/resultados'
+    | '/panel/admin/rifas-especiales'
     | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
     | '/panel/admin/ventas'
@@ -308,9 +330,11 @@ export interface FileRouteTypes {
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
     | '/panel/admin/equipo'
+    | '/panel/admin/numeros-fortuna'
     | '/panel/admin/premios'
     | '/panel/admin/recargas'
     | '/panel/admin/resultados'
+    | '/panel/admin/rifas-especiales'
     | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
     | '/panel/admin/ventas'
@@ -337,9 +361,11 @@ export interface FileRouteTypes {
     | '/panel/admin/auditoria'
     | '/panel/admin/comprobantes'
     | '/panel/admin/equipo'
+    | '/panel/admin/numeros-fortuna'
     | '/panel/admin/premios'
     | '/panel/admin/recargas'
     | '/panel/admin/resultados'
+    | '/panel/admin/rifas-especiales'
     | '/panel/admin/sorteos'
     | '/panel/admin/tickets'
     | '/panel/admin/ventas'
@@ -492,6 +518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PanelAdminEquipoRouteImport
       parentRoute: typeof PanelRoute
     }
+    '/panel/admin/numeros-fortuna': {
+      id: '/panel/admin/numeros-fortuna'
+      path: '/admin/numeros-fortuna'
+      fullPath: '/panel/admin/numeros-fortuna'
+      preLoaderRoute: typeof PanelAdminNumerosFortunaRouteImport
+      parentRoute: typeof PanelRoute
+    }
     '/panel/admin/premios': {
       id: '/panel/admin/premios'
       path: '/admin/premios'
@@ -511,6 +544,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/resultados'
       fullPath: '/panel/admin/resultados'
       preLoaderRoute: typeof PanelAdminResultadosRouteImport
+      parentRoute: typeof PanelRoute
+    }
+    '/panel/admin/rifas-especiales': {
+      id: '/panel/admin/rifas-especiales'
+      path: '/admin/rifas-especiales'
+      fullPath: '/panel/admin/rifas-especiales'
+      preLoaderRoute: typeof PanelAdminRifasEspecialesRouteImport
       parentRoute: typeof PanelRoute
     }
     '/panel/admin/sorteos': {
@@ -564,9 +604,11 @@ interface PanelRouteChildren {
   PanelAdminAuditoriaRoute: typeof PanelAdminAuditoriaRoute
   PanelAdminComprobantesRoute: typeof PanelAdminComprobantesRoute
   PanelAdminEquipoRoute: typeof PanelAdminEquipoRoute
+  PanelAdminNumerosFortunaRoute: typeof PanelAdminNumerosFortunaRoute
   PanelAdminPremiosRoute: typeof PanelAdminPremiosRoute
   PanelAdminRecargasRoute: typeof PanelAdminRecargasRoute
   PanelAdminResultadosRoute: typeof PanelAdminResultadosRoute
+  PanelAdminRifasEspecialesRoute: typeof PanelAdminRifasEspecialesRoute
   PanelAdminSorteosRoute: typeof PanelAdminSorteosRoute
   PanelAdminTicketsRoute: typeof PanelAdminTicketsRoute
   PanelAdminVentasRoute: typeof PanelAdminVentasRoute
@@ -582,9 +624,11 @@ const PanelRouteChildren: PanelRouteChildren = {
   PanelAdminAuditoriaRoute: PanelAdminAuditoriaRoute,
   PanelAdminComprobantesRoute: PanelAdminComprobantesRoute,
   PanelAdminEquipoRoute: PanelAdminEquipoRoute,
+  PanelAdminNumerosFortunaRoute: PanelAdminNumerosFortunaRoute,
   PanelAdminPremiosRoute: PanelAdminPremiosRoute,
   PanelAdminRecargasRoute: PanelAdminRecargasRoute,
   PanelAdminResultadosRoute: PanelAdminResultadosRoute,
+  PanelAdminRifasEspecialesRoute: PanelAdminRifasEspecialesRoute,
   PanelAdminSorteosRoute: PanelAdminSorteosRoute,
   PanelAdminTicketsRoute: PanelAdminTicketsRoute,
   PanelAdminVentasRoute: PanelAdminVentasRoute,
