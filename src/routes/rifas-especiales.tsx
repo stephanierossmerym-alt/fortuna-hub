@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { initialSpecialPurchases, specialRaffles, type RafflePackage, type SpecialPurchase } from "@/data/special-raffles";
 import { cn } from "@/lib/utils";
 
-type Search = { rifa?: string };
+type Search = { rifa?: string | undefined };
 
 export const Route = createFileRoute("/rifas-especiales")({
   validateSearch: (search: Record<string, unknown>): Search => ({ rifa: typeof search["rifa"] === "string" ? search["rifa"] : undefined }),
@@ -86,10 +86,10 @@ function SpecialRafflesPage() {
         {purchase && <PurchaseReceipt purchase={purchase} onApprove={() => setPurchase((current) => current ? { ...current, status: "Aprobado", verifiedAt: "Ahora", reviewer: "Administrador RF-01", numbers: generateNumbers(current.chances) } : current)} />}
       </section>
 
-      <section className="space-y-4">
+      {existing && <section className="space-y-4">
         <SectionTitle eyebrow="Participación registrada">Ejemplo pendiente</SectionTitle>
         <PurchaseReceipt purchase={existing} onApprove={() => undefined} demoOnly />
-      </section>
+      </section>}
     </AppShell>
   );
 }

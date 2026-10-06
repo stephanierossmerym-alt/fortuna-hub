@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Clock, Search, Trophy, UserRound } from "lucide-react";
+import { ArrowRight, Clock, Gift, Search, Trophy, UserRound } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { Brand } from "@/components/brand/brand";
 import { GoldDivider, GoldRibbon, PillarsRow, SectionTitle } from "@/components/brand/ornaments";
